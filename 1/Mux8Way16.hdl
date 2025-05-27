@@ -20,5 +20,51 @@ CHIP Mux8Way16 {
     OUT out[16];
 
     PARTS:
+    Not(in=sel[0], out=S0);
+    Not(in=sel[1], out=S1);
+    Not(in=sel[2], out=S2);
+
+    And(a=S0, b=S1, out=temp1);
+    And(a=temp1, b=S2, out=aCond);
+
+    And(a=sel[0], b=S1, out=temp2);
+    And(a=temp2, b=S2, out=bCond);
+
+    And(a=S0, b=sel[1], out=temp3);
+    And(a=temp3, b=S2, out=cCond);
+
+    And(a=sel[0], b=sel[1], out=temp4);
+    And(a=temp4, b=S2, out=dCond);
+
+    And(a=S0, b=S1, out=temp5);
+    And(a=temp5, b=sel[2], out=eCond);
+
+    And(a=sel[0], b=S1, out=temp6);
+    And(a=temp6, b=sel[2], out=fCond);
+
+    And(a=S0, b=sel[1], out=temp7);
+    And(a=temp7, b=sel[2], out=gCond);
+
+    And(a=sel[0], b=sel[1], out=temp8);
+    And(a=temp8, b=sel[2], out=hCond);
+
+    SAnd16(sel=aCond, a=a, out=tempa)
+    SAnd16(sel=bCond, a=b, out=tempb)
+    SAnd16(sel=cCond, a=c, out=tempc)
+    SAnd16(sel=dCond, a=d, out=tempd)
+    SAnd16(sel=eCond, a=e, out=tempe)
+    SAnd16(sel=fCond, a=f, out=tempf)
+    SAnd16(sel=gCond, a=g, out=tempg)
+    SAnd16(sel=hCond, a=h, out=temph)
+
+    Or16(a=tempa, b=tempb, out=dummy1);
+    Or16(a=dummy1, b=tempc, out=dummy2);
+    Or16(a=dummy2, b=tempd, out=dummy3);
+    Or16(a=dummy3, b=tempe, out=dummy4);
+    Or16(a=dummy4, b=tempf, out=dummy5);
+    Or16(a=dummy5, b=tempg, out=dummy6);
+    Or16(a=dummy6, b=temph, out=out);
+
+
     //// Replace this comment with your code.
 }
