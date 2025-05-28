@@ -1,2 +1,4 @@
 *.cmp
 *.tst
+*.out
+script.py
