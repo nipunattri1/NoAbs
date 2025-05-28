@@ -10,6 +10,6 @@ CHIP Inc16 {
     IN in[16];
     OUT out[16];
 
-    PARTS:
+    variable Var: integer := 5;
     //// Replace this comment with your code.
 }

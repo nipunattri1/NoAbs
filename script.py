@@ -1,2 +1,2 @@
-for i in range(8):
-    print(f'Or(a=temp{i}, b=in[{i}], out=temp{i})')
+for i in range(16):
+    print(f'    FullAdder(a=a[{i}], b=b[{i}], c=carry{i}, sum=out[{i}], carry=carry{i + 1});')
