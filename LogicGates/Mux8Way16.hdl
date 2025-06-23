@@ -48,14 +48,141 @@ CHIP Mux8Way16 {
     And(a=sel[0], b=sel[1], out=temp8);
     And(a=temp8, b=sel[2], out=hCond);
 
-    SAnd16(sel=aCond, a=a, out=tempa)
-    SAnd16(sel=bCond, a=b, out=tempb)
-    SAnd16(sel=cCond, a=c, out=tempc)
-    SAnd16(sel=dCond, a=d, out=tempd)
-    SAnd16(sel=eCond, a=e, out=tempe)
-    SAnd16(sel=fCond, a=f, out=tempf)
-    SAnd16(sel=gCond, a=g, out=tempg)
-    SAnd16(sel=hCond, a=h, out=temph)
+    And(a=aCond, b=a[0], out=tempa[0]); 
+    And(a=aCond, b=a[1], out=tempa[1]); 
+    And(a=aCond, b=a[2], out=tempa[2]); 
+    And(a=aCond, b=a[3], out=tempa[3]); 
+    And(a=aCond, b=a[4], out=tempa[4]); 
+    And(a=aCond, b=a[5], out=tempa[5]); 
+    And(a=aCond, b=a[6], out=tempa[6]); 
+    And(a=aCond, b=a[7], out=tempa[7]); 
+    And(a=aCond, b=a[8], out=tempa[8]); 
+    And(a=aCond, b=a[9], out=tempa[9]); 
+    And(a=aCond, b=a[10], out=tempa[10]); 
+    And(a=aCond, b=a[11], out=tempa[11]); 
+    And(a=aCond, b=a[12], out=tempa[12]); 
+    And(a=aCond, b=a[13], out=tempa[13]); 
+    And(a=aCond, b=a[14], out=tempa[14]); 
+    And(a=aCond, b=a[15], out=tempa[15]); 
+
+    And(a=bCond, b=b[0], out=tempb[0]); 
+    And(a=bCond, b=b[1], out=tempb[1]); 
+    And(a=bCond, b=b[2], out=tempb[2]); 
+    And(a=bCond, b=b[3], out=tempb[3]); 
+    And(a=bCond, b=b[4], out=tempb[4]); 
+    And(a=bCond, b=b[5], out=tempb[5]); 
+    And(a=bCond, b=b[6], out=tempb[6]); 
+    And(a=bCond, b=b[7], out=tempb[7]); 
+    And(a=bCond, b=b[8], out=tempb[8]); 
+    And(a=bCond, b=b[9], out=tempb[9]); 
+    And(a=bCond, b=b[10], out=tempb[10]); 
+    And(a=bCond, b=b[11], out=tempb[11]); 
+    And(a=bCond, b=b[12], out=tempb[12]); 
+    And(a=bCond, b=b[13], out=tempb[13]); 
+    And(a=bCond, b=b[14], out=tempb[14]); 
+    And(a=bCond, b=b[15], out=tempb[15]); 
+
+    And(a=cCond, b=c[0], out=tempc[0]); 
+    And(a=cCond, b=c[1], out=tempc[1]); 
+    And(a=cCond, b=c[2], out=tempc[2]); 
+    And(a=cCond, b=c[3], out=tempc[3]); 
+    And(a=cCond, b=c[4], out=tempc[4]); 
+    And(a=cCond, b=c[5], out=tempc[5]); 
+    And(a=cCond, b=c[6], out=tempc[6]); 
+    And(a=cCond, b=c[7], out=tempc[7]); 
+    And(a=cCond, b=c[8], out=tempc[8]); 
+    And(a=cCond, b=c[9], out=tempc[9]); 
+    And(a=cCond, b=c[10], out=tempc[10]); 
+    And(a=cCond, b=c[11], out=tempc[11]); 
+    And(a=cCond, b=c[12], out=tempc[12]); 
+    And(a=cCond, b=c[13], out=tempc[13]); 
+    And(a=cCond, b=c[14], out=tempc[14]); 
+    And(a=cCond, b=c[15], out=tempc[15]); 
+
+    And(a=d Cond, b=d [0], out=tempd [0]); 
+    And(a=d Cond, b=d [1], out=tempd [1]); 
+    And(a=d Cond, b=d [2], out=tempd [2]); 
+    And(a=d Cond, b=d [3], out=tempd [3]); 
+    And(a=d Cond, b=d [4], out=tempd [4]); 
+    And(a=d Cond, b=d [5], out=tempd [5]); 
+    And(a=d Cond, b=d [6], out=tempd [6]); 
+    And(a=d Cond, b=d [7], out=tempd [7]); 
+    And(a=d Cond, b=d [8], out=tempd [8]); 
+    And(a=d Cond, b=d [9], out=tempd [9]); 
+    And(a=d Cond, b=d [10], out=tempd [10]); 
+    And(a=d Cond, b=d [11], out=tempd [11]); 
+    And(a=d Cond, b=d [12], out=tempd [12]); 
+    And(a=d Cond, b=d [13], out=tempd [13]); 
+    And(a=d Cond, b=d [14], out=tempd [14]); 
+    And(a=d Cond, b=d [15], out=tempd [15]); 
+
+    And(a=eCond, b=e[0], out=tempe[0]); 
+    And(a=eCond, b=e[1], out=tempe[1]); 
+    And(a=eCond, b=e[2], out=tempe[2]); 
+    And(a=eCond, b=e[3], out=tempe[3]); 
+    And(a=eCond, b=e[4], out=tempe[4]); 
+    And(a=eCond, b=e[5], out=tempe[5]); 
+    And(a=eCond, b=e[6], out=tempe[6]); 
+    And(a=eCond, b=e[7], out=tempe[7]); 
+    And(a=eCond, b=e[8], out=tempe[8]); 
+    And(a=eCond, b=e[9], out=tempe[9]); 
+    And(a=eCond, b=e[10], out=tempe[10]); 
+    And(a=eCond, b=e[11], out=tempe[11]); 
+    And(a=eCond, b=e[12], out=tempe[12]); 
+    And(a=eCond, b=e[13], out=tempe[13]); 
+    And(a=eCond, b=e[14], out=tempe[14]); 
+    And(a=eCond, b=e[15], out=tempe[15]); 
+
+    And(a=fCond, b=f[0], out=tempf[0]); 
+    And(a=fCond, b=f[1], out=tempf[1]); 
+    And(a=fCond, b=f[2], out=tempf[2]); 
+    And(a=fCond, b=f[3], out=tempf[3]); 
+    And(a=fCond, b=f[4], out=tempf[4]); 
+    And(a=fCond, b=f[5], out=tempf[5]); 
+    And(a=fCond, b=f[6], out=tempf[6]); 
+    And(a=fCond, b=f[7], out=tempf[7]); 
+    And(a=fCond, b=f[8], out=tempf[8]); 
+    And(a=fCond, b=f[9], out=tempf[9]); 
+    And(a=fCond, b=f[10], out=tempf[10]); 
+    And(a=fCond, b=f[11], out=tempf[11]); 
+    And(a=fCond, b=f[12], out=tempf[12]); 
+    And(a=fCond, b=f[13], out=tempf[13]); 
+    And(a=fCond, b=f[14], out=tempf[14]); 
+    And(a=fCond, b=f[15], out=tempf[15]); 
+
+    And(a=gCond, b=g[0], out=tempg[0]); 
+    And(a=gCond, b=g[1], out=tempg[1]); 
+    And(a=gCond, b=g[2], out=tempg[2]); 
+    And(a=gCond, b=g[3], out=tempg[3]); 
+    And(a=gCond, b=g[4], out=tempg[4]); 
+    And(a=gCond, b=g[5], out=tempg[5]); 
+    And(a=gCond, b=g[6], out=tempg[6]); 
+    And(a=gCond, b=g[7], out=tempg[7]); 
+    And(a=gCond, b=g[8], out=tempg[8]); 
+    And(a=gCond, b=g[9], out=tempg[9]); 
+    And(a=gCond, b=g[10], out=tempg[10]); 
+    And(a=gCond, b=g[11], out=tempg[11]); 
+    And(a=gCond, b=g[12], out=tempg[12]); 
+    And(a=gCond, b=g[13], out=tempg[13]); 
+    And(a=gCond, b=g[14], out=tempg[14]); 
+    And(a=gCond, b=g[15], out=tempg[15]); 
+
+    And(a=hCond, b=h[0], out=temph[0]); 
+    And(a=hCond, b=h[1], out=temph[1]); 
+    And(a=hCond, b=h[2], out=temph[2]); 
+    And(a=hCond, b=h[3], out=temph[3]); 
+    And(a=hCond, b=h[4], out=temph[4]); 
+    And(a=hCond, b=h[5], out=temph[5]); 
+    And(a=hCond, b=h[6], out=temph[6]); 
+    And(a=hCond, b=h[7], out=temph[7]); 
+    And(a=hCond, b=h[8], out=temph[8]); 
+    And(a=hCond, b=h[9], out=temph[9]); 
+    And(a=hCond, b=h[10], out=temph[10]); 
+    And(a=hCond, b=h[11], out=temph[11]); 
+    And(a=hCond, b=h[12], out=temph[12]); 
+    And(a=hCond, b=h[13], out=temph[13]); 
+    And(a=hCond, b=h[14], out=temph[14]); 
+    And(a=hCond, b=h[15], out=temph[15]);
 
     Or16(a=tempa, b=tempb, out=dummy1);
     Or16(a=dummy1, b=tempc, out=dummy2);

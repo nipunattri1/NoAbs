@@ -41,18 +41,21 @@ CHIP ALU {
 
     PARTS:
     // calculate set zero
-    Not(in=zx, out=notzx);
-    Not(in=zy, out=notzy);
-    SAnd16(sel=notzx, a=x, out=x1);
-    SAnd16(sel=notzy, a=y, out=y1);
+    // Not(in=zx, out=notzx);
+    Mux16(a=x, b=false, sel=zx, out=x1);
+    
+    Mux16(a=y, b=false, sel=zy, out=y1);
+    
 
     // bitwise not
     Not16(in=x1, out=notx);
     Not16(in=y1, out=noty);
 
     // if nx == 1 then give notx1 elsey1
-    If16(cond=nx, a=notx, b=x1, out= maybex);
-    If16(cond=ny, a=noty, b=y1, out= maybey);
+    // If16(cond=nx, a=notx, b=x1, out= maybex);
+    Mux16(a=x1, b=notx, sel=nx, out=maybex);
+    Mux16(a=y1, b=noty, sel=ny, out=maybey);
+
 
     // x + y
     Add16(a=maybex, b=maybey, out=outifF);
@@ -61,23 +64,20 @@ CHIP ALU {
     And16(a=maybex, b=maybey, out=outifnotF); 
 
     // neg out, if no == 0 else give non neg out.
-    If16(cond=f, a=outifF, b=outifnotF, out=NonNegOut);
+    // If16(cond=f, a=outifF, b=outifnotF, out=NonNegOut);
+    Mux16(b=outifF, a=outifnotF, sel=f, out=NonNegOut);
 
     Not16(in=NonNegOut, out=NegOut);
 
     // calculate output
-    If16(cond=no, a=NegOut, b =NonNegOut, out=out, out=outclone);
+    Mux16(sel=no, b=NegOut, a =NonNegOut, out=out, out[0..7]=out1, out[8..15]=out2, out[15]=ng);
+
 
     // not out
-    EqualZero16(in=outclone , out=zr);
-
-
-    IsNeg(in=outclone, out=ng);
-
-
-
-
-
-    
+    // EqualZero16(in=outclone , out=zr);
+    Or8Way(in=out1, out=out1o);
+    Or8Way(in=out2, out=out2o);
+    Or(a=out1o, b=out2o, out=notng);
+    Not(in=notng, out=zr);
 
 }
