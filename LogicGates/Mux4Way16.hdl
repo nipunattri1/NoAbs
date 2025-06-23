@@ -22,10 +22,22 @@ CHIP Mux4Way16 {
     And(a=S0, b=sel[1], out=cCond);
     And(a=sel[0], b=sel[1], out=dCond);
 
-    SAnd16(sel=aCond, a=a, out=temp1);
-    SAnd16(sel=bCond, a=b, out=temp2);
-    SAnd16(sel=cCond, a=c, out=temp3);
-    SAnd16(sel=dCond, a=d, out=temp4);
+    // SAnd16(sel=aCond, a=a, out=temp1);
+    And16(a=a, b=true, out=atemp1);
+    And16(a=a, b=false, out=atemp2);
+    Mux16(b=atemp1, a=atemp2, sel=aCond, out=temp1);
+
+    And16(a=b, b=true, out=btemp1);
+    And16(a=b, b=false, out=btemp2);
+    Mux16(b=btemp1, a=btemp2, sel=bCond, out=temp2);
+
+    And16(a=c, b=true, out=ctemp1);
+    And16(a=c, b=false, out=ctemp2);
+    Mux16(b=ctemp1, a=ctemp2, sel=cCond, out=temp3);
+
+    And16(a=d, b=true, out=dtemp1);
+    And16(a=d, b=false, out=dtemp2);
+    Mux16(b=dtemp1, a=dtemp2, sel=dCond, out=temp4);
 
     Or16(a=temp1, b=temp2, out=temp5);
     Or16(a=temp5, b=temp3, out=temp6);
