@@ -25,23 +25,16 @@ Each component is tested and validated with simulation tools and test scripts.
 ## 📁 Directory Structure
 
 ```
-
-from-nand-computer/
-│
-├── projects/
-│   ├── 01-gates/          # Basic gates (And, Or, Not, etc.)
-│   ├── 02-arithmetic/     # ALU components
-│   ├── 03-memory/         # Flip-flops, RAM, program counter
-│   ├── 04-cpu/            # CPU implementation
-│   ├── 05-computer/       # Integrated computer
-│   ├── 06-assembler/      # Converts assembly to machine code
-│   ├── 07-vm-translator/  # Stack-based virtual machine translator
-│   ├── 08-compiler/       # Compiler from high-level language (optional)
-│   └── 09-os/             # Simple operating system in high-level language (optional)
-│
-├── tools/                 # Simulation and development tools
-├── docs/                  # Notes, diagrams, design specs
-└── README.md              # Project documentation
+NoAbs/
+├── 01-LogicGates/     # Basic gates (And, Or, Not, etc.)
+├── 02-ALU/            # ALU components
+├── 03-memory/         # Flip-flops, RAM, program counter
+├── 04-cpu/            # CPU implementation
+├── 05-computer/       # Integrated computer
+├── 06-assembler/      # Converts assembly to machine code
+├── 07-vm-translator/  # Stack-based virtual machine translator
+├── 08-compiler/       # Compiler from high-level language (optional)
+└── README.md          # Project documentation
 
 ```
 
