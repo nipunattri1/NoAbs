@@ -1,7 +1,4 @@
-// This file is part of www.nand2tetris.org
-// and the book "The Elements of Computing Systems"
-// by Nisan and Schocken, MIT Press.
-// File name: projects/3/b/RAM16K.hdl
+
 /**
  * Memory of 16K 16-bit registers.
  * If load is asserted, the value of the register selected by
@@ -13,5 +10,4 @@ CHIP RAM16K {
     OUT out[16];
 
     PARTS:
-    //// Replace this comment with your code.
 }

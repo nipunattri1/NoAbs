@@ -1,4 +1,4 @@
-# From-NAND Computer System
+# NoAbs: (From-NAND Computer System)
 
 This project is a complete implementation of a general-purpose computer system built from the ground up — starting with a single NAND gate and ending with a working CPU capable of running high-level programs.
 
@@ -18,7 +18,7 @@ This repository includes the complete build of a simple 16-bit computer, broken 
 - Virtual machine translator
 - High-level programming language (compiler and OS, optional)
 
-Each component is tested and validated with simulation tools and test scripts.
+Each component is tested and validated with simulation tools and test scripts. (From Nand2Tetris program)
 
 ---
 
@@ -71,6 +71,6 @@ NoAbs/
 ## 📚 References
 
 - *The Elements of Computing Systems* by Nisan & Schocken (MIT Press)
-- Educational tools and simulators provided for the course
+- Educational tools and simulators provided for the course Nand2Teris
 
 ---
