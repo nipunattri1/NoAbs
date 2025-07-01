@@ -10,5 +10,4 @@ CHIP And {
     PARTS:
     Nand(a=a, b=b, out=var1);
     Not (in=var1, out= out);
-    //// Replace this comment with your code.
 }

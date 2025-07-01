@@ -15,5 +15,4 @@ CHIP Or8Way {
     Or(a=temp4, b=in[5], out=temp5);
     Or(a=temp5, b=in[6], out=temp6);
     Or(a=temp6, b=in[7], out=out);
-    //// Replace this comment with your code.
 }

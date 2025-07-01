@@ -1,3 +1,2 @@
-letters = ['a', 'b','c','d','e','f','g','h' ]
-for l in range(1,9):
-    print(f"Register(in=in, load=L{l}, out=R{l});")
+for i in range(8):
+    print(f"RAM512(in=in, load=L{i+1}, address=address[0..8], out=O{i+1});")

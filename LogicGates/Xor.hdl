@@ -13,5 +13,4 @@ CHIP Xor {
     And(a=a, b=notb, out=anotb);
     And(a=b, b=nota, out=bnota);
     Or(a=anotb, b=bnota, out=out);
-    //// Replace this comment with your code.
 }

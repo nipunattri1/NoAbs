@@ -12,5 +12,4 @@ CHIP DMux {
     Not(in=sel, out=notsel);
     If(cond=notsel, a=in, b=false, out=a);
     If(cond=sel, a=in, b=false, out=b);
-    //// Replace this comment with your code.
 }

@@ -15,7 +15,6 @@ CHIP PC {
     Or(a=reset, b=load, out=temp);
     Or(a=temp, b=inc, out=TLoad); // TLoad - temp load
 
-
     // decide input
     Not(in=reset, out=Notreset);
     Not(in=load, out=Notload);
@@ -26,18 +25,9 @@ CHIP PC {
     // compute inc 
     Inc16(in=outCopy, out=add);
 
-    /*
-    The case of inc happens if both above cases don't occur and last case is handled by TLoad :)
-    
-    */
+    /* The case of inc happens if both above cases don't occur and last case is handled by TLoad :)    */
 
     Mux4Way16(a=false, b=in, c=add, d=false, sel[0]=sel0, sel[1]=sel1, out=input);
 
     Register(in=input, load=TLoad, out=out, out=outCopy);
-
-
-    
-
-    // Mux4Way16(a=false, b=in, c=inc, d=prev, sel=sel, out=out);
-
 }
