@@ -1,6 +1,6 @@
 # NoAbs: (From-NAND Computer System)
 
-This project is a complete implementation of a general-purpose computer system built from the ground up — starting with a single NAND gate and ending with a working CPU capable of running high-level programs.
+This project is a complete implementation of a general-purpose computer system built from the ground up; starting with a single NAND gate and ending with a working CPU capable of running high-level programs.
 
 Inspired by educational systems design, the goal is to demystify how computers work by constructing each hardware and software layer manually.
 
@@ -16,7 +16,7 @@ This repository includes the complete build of a simple 16-bit computer, broken 
 - CPU architecture
 - Assembly language and assembler
 - Virtual machine translator
-- High-level programming language (compiler and OS, optional)
+- High-level programming language (for compiler and OS etc)
 
 Each component is tested and validated with simulation tools and test scripts. (From Nand2Tetris program)
 
@@ -26,15 +26,13 @@ Each component is tested and validated with simulation tools and test scripts. (
 
 ```
 NoAbs/
-├── 01-LogicGates/     # Basic gates (And, Or, Not, etc.)
-├── 02-ALU/            # ALU components
-├── 03-memory/         # Flip-flops, RAM, program counter
-├── 04-cpu/            # CPU implementation
-├── 05-computer/       # Integrated computer
-├── 06-assembler/      # Converts assembly to machine code
-├── 07-vm-translator/  # Stack-based virtual machine translator
-├── 08-compiler/       # Compiler from high-level language (optional)
-└── README.md          # Project documentation
+├── LogicGates/             # Basic gates (And, Or, Not, etc.)
+├── ALU/                    # ALU components
+├── memory/                 # Flip-flops, RAM, program counter
+├── cpu/                    # CPU implementation
+├── computer/               # Integrated computer
+├── Machine Language/       # Test for Machine Language
+└── README.md               # Project documentation
 
 ```
 
@@ -56,7 +54,7 @@ NoAbs/
 - ALUs and CPU design
 - Assembly and machine language
 - Stack-based virtual machines
-- Compiler and OS basics (optional)
+- Compiler and OS basics
 
 ---
 
