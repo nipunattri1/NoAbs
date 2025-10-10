@@ -59,6 +59,7 @@ std::string preprocessor(std::string instruction)
     };
     static size_t addressCounter = 15;
     static size_t lineIndex = 1;
+    
     // strip of all spaces in code
     instruction.erase(std::remove(instruction.begin(), instruction.end(), ' '), instruction.end());
     instruction = removeComments(instruction);
@@ -73,6 +74,7 @@ std::string preprocessor(std::string instruction)
             if (constants.find(key) == constants.end()) // check if key in map
                 constants[key] = ++addressCounter;
             lineIndex++;
+
             return "@" + std::to_string(constants[key]);
         }
         else
