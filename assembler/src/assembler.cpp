@@ -1,12 +1,12 @@
 // ! Learn error management also...
-
+#include "preprocessor.h"
+#include "processor.h"
 #include <iostream>
 #include <fstream>
 #include <map>
 #include <algorithm>
 #include <bitset>
-#include "preprocessor.h"
-#include "processor.h"
+
 // define error codes;
 // eg code 1 invalid address
 
@@ -25,6 +25,7 @@ int main(int argc, char const *argv[])
         // std::cout << instruction << std::endl;
         std::string a{};
         a = preprocessor(instruction);
+        std::transform(a.begin(), a.end(),a.begin(), ::toupper);
         a = conv(a);
         
         std::cout << a;

@@ -1,8 +1,6 @@
-@r5
-@ko
-C;D
-(loop)
-@i
-A=
-AD=
-ADM=
+@2
+D=A
+@3
+D=D+A
+@0
+M=D
