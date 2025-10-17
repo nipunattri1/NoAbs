@@ -66,6 +66,8 @@ std::string preprocessor(std::string instruction, bool init)
 
     // strip of all spaces in code
     instruction.erase(std::remove(instruction.begin(), instruction.end(), ' '), instruction.end());
+    instruction.erase(std::remove(instruction.begin(), instruction.end(), '\r'), instruction.end());
+    instruction.erase(std::remove(instruction.begin(), instruction.end(), '\n'), instruction.end());
     instruction = removeComments(instruction);
 
     // if starts with @ (64) it's a A instruction
