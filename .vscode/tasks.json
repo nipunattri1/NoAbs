@@ -10,7 +10,7 @@
                 // "${file}",
                 "${fileDirname}/*.cpp",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/assembler"
             ],
             "options": {
                 "cwd": "${fileDirname}"
