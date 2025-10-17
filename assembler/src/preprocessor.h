@@ -2,6 +2,6 @@
 #define PREPRO 
 #include <stdio.h>
 #include <string>
-std::string preprocessor(std::string instruction);
+std::string preprocessor(std::string instruction, bool init);
 
 #endif

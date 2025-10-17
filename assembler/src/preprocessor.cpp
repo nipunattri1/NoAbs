@@ -5,7 +5,6 @@
 #include <algorithm>
 #include <bitset>
 
-
 std::string removeComments(std::string &instruction)
 {
     std::string proInst = instruction; // processsed instrctions
@@ -18,8 +17,7 @@ std::string removeComments(std::string &instruction)
     return proInst;
 }
 
-
-std::string preprocessor(std::string instruction)
+std::string preprocessor(std::string instruction, bool init)
 {
 
     /*
@@ -58,22 +56,31 @@ std::string preprocessor(std::string instruction)
         {"KBD", 24576},
     };
     static size_t addressCounter = 15;
-    static size_t lineIndex = 1;
-    
+    static size_t lineIndex = -1;
+    static bool lastInit = true;
+
+    if (lastInit && !init)
+        lineIndex = -1;
+
+    lastInit = init;
+
     // strip of all spaces in code
     instruction.erase(std::remove(instruction.begin(), instruction.end(), ' '), instruction.end());
     instruction = removeComments(instruction);
 
     // if starts with @ (64) it's a A instruction
-    if (instruction[0] == 64)
+    
+    if (instruction != "" ) // increase index in any case of an intruction
+        lineIndex++;
+    if (instruction[0] == 64 && !init)
     {
+        
         if (!(instruction[1] <= 57 && instruction[1] >= 47))
         {
             std::string key = instruction.substr(1); // for A instruction @Key "key" is var key
 
             if (constants.find(key) == constants.end()) // check if key in map
                 constants[key] = ++addressCounter;
-            lineIndex++;
 
             return "@" + std::to_string(constants[key]);
         }
@@ -87,12 +94,18 @@ std::string preprocessor(std::string instruction)
                 }
             }
         }
-        lineIndex++;
     }
-    else if(instruction[0] == '(' && instruction[instruction.length() -1] == ')')
+    else if (instruction[0] == '(' && instruction[instruction.length() - 1] == ')')
     {
-        constants[instruction.substr(1, instruction.length() -1)] = ++lineIndex;
+        if (constants.find(instruction.substr(1, instruction.length() - 2)) == constants.end())
+        {
+            constants[instruction.substr(1, instruction.length() - 2)] = lineIndex;
+        }
+        
+        lineIndex--; //dec the index to orgnal form since add labels should now have a line to themselves
         return "";
     }
+    std::transform(instruction.begin(), instruction.end(), instruction.begin(), ::toupper);
+    
     return instruction;
 }
