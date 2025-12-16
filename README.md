@@ -44,4 +44,6 @@ This double parsing keeps the implementation simple while correctly handling for
 ## Installation
 
 Clone the repository:
-
+```bash
+git clone https://github.com/nipunattri1/Assembler
+```
