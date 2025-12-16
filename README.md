@@ -47,3 +47,12 @@ Clone the repository:
 ```bash
 git clone https://github.com/nipunattri1/Assembler
 ```
+Build
+```bash
+cd src
+g++ *.cpp -o assembler
+```
+Run
+```bash
+./assembler in.asm
+```
