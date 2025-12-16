@@ -1,74 +1,47 @@
-# NoAbs: (From-NAND Computer System)
+# Assembler
 
-This project is a complete implementation of a general-purpose computer system built from the ground up; starting with a single NAND gate and ending with a working CPU capable of running high-level programs.
+A simple two-pass assembler for the Nand2Tetris Hack computer.  
+This tool translates Hack assembly (`.asm`) files into binary machine code (`.hack`), including support for labels, variables, and all standard C‑instructions.
 
-Inspired by educational systems design, the goal is to demystify how computers work by constructing each hardware and software layer manually.
+## Features
 
----
+- Full support for the Hack instruction set:
+  - A‑instructions: `@value` (literal or symbol)
+  - C‑instructions: `dest=comp;jump`
+- Two-pass (double parsing) symbol resolution:
+  - Pass 1: Collects label definitions and ROM addresses
+  - Pass 2: Resolves symbols (labels + variables) and emits binary code
+- Built‑in predefined symbols (`R0`–`R15`, `SCREEN`, `KBD`)
+- Automatic variable allocation starting at RAM address 16
+- Ignores comments (`// ...`) and whitespace
+- Outputs 16‑bit binary `.hack` files ready to run on the Nand2Tetris CPU emulator
 
-## 🧠 Overview
+## How double parsing works
 
-This repository includes the complete build of a simple 16-bit computer, broken down into logical modules:
+The assembler uses a classic two‑pass algorithm:
 
-- Basic logic gates
-- Arithmetic Logic Unit (ALU)
-- Sequential memory and registers
-- CPU architecture
-- Assembly language and assembler
-- Virtual machine translator
-- High-level programming language (for compiler and OS etc)
+1. **First pass (symbol table construction)**
+   - Reads the assembly file line by line.
+   - Strips comments and whitespace.
+   - For each label declaration `(LABEL)`:
+     - Adds `LABEL` to the symbol table with the current ROM address.
+   - For each actual instruction (A or C):
+     - Increments the ROM address counter.
 
-Each component is tested and validated with simulation tools and test scripts. (From Nand2Tetris program)
+2. **Second pass (code generation)**
+   - Re-reads the assembly file.
+   - For A‑instructions:
+     - If the symbol is a number, use it directly.
+     - If the symbol is not in the table, allocate a new RAM address (starting at 16).
+     - Emit a 16‑bit A‑instruction: `0vvvvvvvvvvvvvvv`.
+   - For C‑instructions:
+     - Parse `dest`, `comp`, and `jump`.
+     - Map each field to its corresponding bit pattern.
+     - Emit a 16‑bit C‑instruction: `111accccccdddjjj`.
 
----
+This double parsing keeps the implementation simple while correctly handling forward references and labels defined later in the file.
 
-## 📁 Directory Structure
+## Installation
 
-```
-NoAbs/
-├── LogicGates/             # Basic gates (And, Or, Not, etc.)
-├── ALU/                    # ALU components
-├── memory/                 # Flip-flops, RAM, program counter
-├── cpu/                    # CPU implementation
-├── computer/               # Integrated computer
-├── Machine Language/       # Test for Machine Language
-└── README.md               # Project documentation
+Clone the repository:
 
-```
-
----
-
-## 🛠 How to Use
-
-1. **Simulators**: Use the provided tools to simulate and test hardware (e.g., HardwareSimulator, CPUEmulator).
-2. **Testing**: Each project contains `.hdl` files and `.tst` test scripts for verification.
-3. **Assembler**: Run `.asm` files through an assembler to generate machine code.
-4. **Run Programs**: Use the CPU emulator to execute `.hack` binary programs.
-
----
-
-## 🔧 Technologies & Concepts
-
-- Hardware Description Language (HDL)
-- Digital logic design
-- ALUs and CPU design
-- Assembly and machine language
-- Stack-based virtual machines
-- Compiler and OS basics
-
----
-
-## 🎯 Learning Objectives
-
-- Gain low-level insight into computer architecture
-- Understand the abstraction layers from logic gates to operating systems
-- Reinforce digital logic and systems thinking through hands-on implementation
-
----
-
-## 📚 References
-
-- *The Elements of Computing Systems* by Nisan & Schocken (MIT Press)
-- Educational tools and simulators provided for the course Nand2Teris
-
----
